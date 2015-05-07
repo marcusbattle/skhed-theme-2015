@@ -9,7 +9,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="container-fluid" style="max-width: 600px;">
+		<div class="container-fluid">
 			<h1><?php echo get_the_title(); ?></h1>
 			<?php echo wpautop( $post->post_content ); ?>
 			<form method="POST">
