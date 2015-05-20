@@ -58,6 +58,7 @@
 							<?php 
 								$day_of_week = get_post_meta( $availabity->ID, '_availability_day_of_week', true ); 
 								$availability_date = date('l M jS', strtotime( $day_of_week ) );
+								$availability_time = date('g:i A', strtotime( get_post_meta( $availabity->ID, '_availability_time_of_day', true ) ) );
 
 								$is_avaiable = $skhed->check_if_available( $availabity->ID );
 								$available_class = ( $is_avaiable ) ? '' : 'disabled';
@@ -65,7 +66,7 @@
 							<div class="radio <?php echo $available_class ?>">
 								<label>
 									<input type="radio" name="availability_id" value="<?php echo $availabity->ID ?>" <?php echo $available_class ?>/>
-									<?php echo $availability_date; ?> @ <?php echo get_post_meta( $availabity->ID, '_availability_time_of_day', true ); ?>
+									<?php echo $availability_date; ?> @ <?php echo $availability_time; ?>
 									<?php if ( ! $is_avaiable ): ?>
 										<strong> (Full)</strong>
 									<?php endif; ?>
